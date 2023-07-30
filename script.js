@@ -96,4 +96,21 @@ function removeItem() {
   }
 
   const selectedIndex = outStockItemSelect.value;
-  const quantityToRemove = parseInt
+  const quantityToRemove = parseInt(quantityToRemoveInput.value);
+
+  if (quantityToRemove <= 0) {
+    alert('出庫數量應為正整數。');
+    return;
+  }
+
+  if (selectedIndex >= 0) {
+    const selectedItem = inventory[selectedIndex];
+    if (selectedItem.quantity < quantityToRemove) {
+      alert('出庫數量超過庫存數量。');
+      return;
+    }
+    selectedItem.quantity -= quantityToRemove;
+    updateInventoryDisplay();
+    updateStockActions();
+  }
+}
