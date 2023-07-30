@@ -22,6 +22,7 @@ function login() {
     snackForm.style.display = 'block';
     snackList.style.display = 'block';
     inventorySummary.style.display = 'block';
+    stockActions.style.display = 'block';
     updateStockActions();
   } else {
     alert('密碼錯誤，請重新輸入。');
@@ -75,8 +76,6 @@ function calculateTotalQuantity() {
 }
 
 function updateStockActions() {
-  stockActions.style.display = loggedIn ? 'block' : 'none';
-
   while (outStockItemSelect.firstChild) {
     outStockItemSelect.removeChild(outStockItemSelect.firstChild);
   }
